@@ -6,4 +6,5 @@ $max-card-width: 11.875rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax($max-card-width, 1fr));
     gap: $spacing-5;
+    padding: $paddin-0 $paddin-12;
 }

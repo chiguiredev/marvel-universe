@@ -1,4 +1,9 @@
+"use client";
+
 import { Character } from "@/types/characterTypes";
+import { FullHeart } from "@/components/icons/FullHeart";
+import { EmptyHeart } from "@/components/icons/EmptyHeart";
+import { useSetLikedCharacter } from "@/hooks/clientStorageCharacters/useSetLikedCharacter";
 import styles from "./CharacterCard.module.scss";
 
 type CharacterCardProps = {
@@ -6,6 +11,8 @@ type CharacterCardProps = {
 };
 
 export function CharacterCard({ character }: CharacterCardProps): JSX.Element {
+  const { isLiked, handleLikeClick } = useSetLikedCharacter(character);
+
   return (
     <div className={styles.character_card}>
       <img
@@ -16,7 +23,12 @@ export function CharacterCard({ character }: CharacterCardProps): JSX.Element {
       <div className={styles.character_card__filler}></div>
       <div className={styles.character_card__content}>
         <p>{character.name}</p>
-        <div>H</div>
+        <button
+          className={styles.character_card__button}
+          onClick={handleLikeClick}
+        >
+          {isLiked ? <FullHeart /> : <EmptyHeart />}
+        </button>
       </div>
     </div>
   );

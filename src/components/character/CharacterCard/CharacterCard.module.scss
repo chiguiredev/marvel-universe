@@ -38,11 +38,16 @@ $filler-bar-height: 0.375rem;
 
 .character_card__content {
     width: 100%;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr $spacing-4;
     gap: $spacing-2;
     align-items: center;
     flex-grow: 1;
     text-wrap: wrap;
     padding: $paddin-4 $paddin-4 $paddin-6 $paddin-4;
+}
+
+.character_card__button {
+    background: none;
+    border: none;
 }

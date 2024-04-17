@@ -1,0 +1,21 @@
+@use 'sass:color';
+@import '@/shared-styles/variables.module.scss';
+
+.like_nav_link {
+    &__content {
+        display: flex;
+        align-items: center;
+        gap: $spacing-2;
+        color: $app-background;
+        text-decoration: none;
+        font-size: $font-size-2;
+        font-weight: 400;
+        padding: $paddin-2 $paddin-4;
+        border-radius: $border-radius-4;
+        transition: background-color 0.2s ease-in-out;
+
+        &:hover {
+            background-color: color.adjust($app-background, $lightness: -85%);
+        }
+    }
+}

@@ -1,0 +1,10 @@
+@import '@/shared-styles/variables.module.scss';
+
+.full_width_container {
+    width: 100%;
+}
+
+.max_width_content {
+    max-width: $max-width;
+    margin: 0 auto;
+}

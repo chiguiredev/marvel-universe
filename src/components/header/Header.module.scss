@@ -1,0 +1,23 @@
+@import '@/shared-styles/variables.module.scss';
+
+$hader-foreground: $app-foreground;
+
+.header {
+    background-color: $hader-foreground;
+    padding: $paddin-4 $paddin-12;
+
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+
+    &__nav {
+        & ul {
+            display: flex;
+            list-style: none;
+        }
+    }
+}

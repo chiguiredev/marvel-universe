@@ -1,0 +1,9 @@
+@import '@/shared-styles/variables.module.scss';
+
+$max-card-width: 11.875rem;
+
+.character_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax($max-card-width, 1fr));
+    gap: $spacing-5;
+}

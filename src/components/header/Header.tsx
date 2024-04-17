@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { clsx } from "clsx";
+import { LikeNavLink } from "../LikeNavLink/LikeNavLink";
 import styles from "./Header.module.scss";
 import utilityStyles from "@/shared-styles/utilities.module.scss";
-import { LikeNavLink } from "../LikeNavLink/LikeNavLink";
 
 export const Header = () => {
   return (

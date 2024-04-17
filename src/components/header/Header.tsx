@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { clsx } from "clsx";
 import { LikeNavLink } from "../LikeNavLink/LikeNavLink";
 import styles from "./Header.module.scss";
@@ -13,13 +14,15 @@ export const Header = () => {
           utilityStyles.max_width_content
         )}
       >
-        <Image
-          priority
-          src="/images/marvel_logo.png"
-          alt="marvel company logo"
-          width={130}
-          height={52}
-        />
+        <Link href="/">
+          <Image
+            priority
+            src="/images/marvel_logo.png"
+            alt="marvel company logo"
+            width={130}
+            height={52}
+          />
+        </Link>
         <nav className={styles.header__nav}>
           <ul>
             <li>

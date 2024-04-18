@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ClientStorage } from "@/clientStorage/clientStorage";
+import { ClientStorage } from "@/utils/clientStorage/clientStorage";
 import { Character } from "@/types/characterTypes";
 
 export function useLikeCharacters() {

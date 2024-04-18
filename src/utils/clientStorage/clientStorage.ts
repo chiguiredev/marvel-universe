@@ -1,5 +1,9 @@
 export class ClientStorage {
   static setItem<T>(key: string, value: T): T | null {
+    if (typeof localStorage === "undefined") {
+      return null;
+    }
+
     try {
       const serializedValue = JSON.stringify(value);
       localStorage.setItem(key, serializedValue);
@@ -11,6 +15,10 @@ export class ClientStorage {
   }
 
   static getItem<T>(key: string): T | null {
+    if (typeof localStorage === "undefined") {
+      return null;
+    }
+
     try {
       const serializedValue = localStorage.getItem(key);
       if (serializedValue === null) {
@@ -25,6 +33,10 @@ export class ClientStorage {
   }
 
   static removeItem(key: string): boolean {
+    if (typeof localStorage === "undefined") {
+      return false;
+    }
+
     try {
       localStorage.removeItem(key);
       return true;
@@ -35,6 +47,10 @@ export class ClientStorage {
   }
 
   static getAllItemsWithKeySubstring<T>(substring: string): T[] {
+    if (typeof localStorage === "undefined") {
+      return [] as T[];
+    }
+
     const items: T[] = [];
 
     try {

@@ -1,4 +1,4 @@
-import { ClientStorage } from "@/clientStorage/clientStorage";
+import { ClientStorage } from "@/utils/clientStorage/clientStorage";
 import { useState, useEffect } from "react";
 
 export const useLikedCharacterCount = () => {

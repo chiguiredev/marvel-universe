@@ -3,15 +3,33 @@
 import { Character } from "@/types/characterTypes";
 import { FullHeart } from "@/components/icons/FullHeart";
 import { EmptyHeart } from "@/components/icons/EmptyHeart";
-import { useSetLikedCharacter } from "@/hooks/clientStorageCharacters/useSetLikedCharacter";
+import { useLikedCharactersContext } from "@/context/likedCharactersContext";
 import styles from "./CharacterCard.module.scss";
+import { useEffect, useState } from "react";
 
 type CharacterCardProps = {
   character: Character;
 };
 
 export function CharacterCard({ character }: CharacterCardProps): JSX.Element {
-  const { isLiked, handleLikeClick } = useSetLikedCharacter(character);
+  const [isLiked, setIsLiked] = useState<boolean>(false);
+
+  const { likedCharacters, isCharacterLiked, likeCharacter, unlikeCharacter } =
+    useLikedCharactersContext();
+
+  function handleLikeClick() {
+    if (!isCharacterLiked(character)) {
+      likeCharacter(character);
+      setIsLiked((prevState) => !prevState);
+    } else {
+      unlikeCharacter(character);
+      setIsLiked((prevState) => !prevState);
+    }
+  }
+
+  useEffect(() => {
+    setIsLiked(isCharacterLiked(character));
+  }, [likedCharacters]);
 
   return (
     <div className={styles.character_card}>

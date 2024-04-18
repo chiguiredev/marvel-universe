@@ -3,14 +3,24 @@
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./LikeNavLink.module.scss";
-import { useLikedCharacterCount } from "@/hooks/clientStorageCharacters/useLikedCharacterCount";
+import { useLikedCharactersContext } from "@/context/likedCharactersContext";
+import { useEffect, useState } from "react";
 
 type LikeNavLinkProps = {
   to: string;
 };
 
 export const LikeNavLink = ({ to }: LikeNavLinkProps) => {
-  const { isClient, likedCharactersCount } = useLikedCharacterCount();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  const { likedCharacters } = useLikedCharactersContext();
+
+  let likedCharactersCount = Object.keys(likedCharacters).length;
+
   return (
     <Link href={to}>
       <div className={styles.like_nav_link__content}>
